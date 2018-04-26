@@ -32,7 +32,9 @@ the cryptocurrency to fiat currency with a suitable exchange rate
 
 ## Screenshots
 ![Alt text](/Sample.jpg?raw=true "Sample Commands and Responses")
+Descriptions for each command line shown in red above.
 ![Alt text](/ExchangeRatesSolverArchitecture.jpg?raw=true "General Architecture")
+General architecture.
 
 ## Release Notes
 | Date | Version | Description | Author |
