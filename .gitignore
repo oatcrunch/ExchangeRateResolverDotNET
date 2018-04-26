@@ -19,3 +19,6 @@ project.lock.json
 # NuGet Packages Directory
 packages/
 *.nupkg
+
+# Others
+*.vs
