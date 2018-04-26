@@ -90,13 +90,14 @@ namespace ExchangeRateResolver.Core
             List<string> path = GetOptimalPath(next, V, sourceVertexId, ref sourceVertexIndex, destVertexIndex);
 
             /** Store into data context **/
-            string baseRequestKey = exchangeRateRequest.Key;
-            string bestRateKey = baseRequestKey + "=>RATE";
-            string pathKey = baseRequestKey + "=>PATH";
-            _dataContext.AddData(bestRateKey, bestRate);
-            _dataContext.AddData(pathKey, path);
+            StoreIntoDataContext(exchangeRateRequest, bestRate, path);
 
             /** Print results **/
+            PrintResults(exchangeRateRequest, bestRate, path);
+        }
+
+        private void PrintResults(ExchangeRateRequest exchangeRateRequest, float? bestRate, List<string> path)
+        {
             Console.WriteLine();
             Console.WriteLine("{0} {1} {2} {3} {4} {5}", Constants.BEST_RATES_BEGIN, exchangeRateRequest.SourceExchange, exchangeRateRequest.SourceCurrency, exchangeRateRequest.DestinationExchange, exchangeRateRequest.DestinationCurrency, bestRate);
             foreach (var p in path)
@@ -106,6 +107,15 @@ namespace ExchangeRateResolver.Core
             }
             Console.WriteLine(Constants.BEST_RATES_END);
             Console.WriteLine();
+        }
+
+        private void StoreIntoDataContext(ExchangeRateRequest exchangeRateRequest, float? bestRate, List<string> path)
+        {
+            string baseRequestKey = exchangeRateRequest.Key;
+            string bestRateKey = baseRequestKey + "=>RATE";
+            string pathKey = baseRequestKey + "=>PATH";
+            _dataContext.AddData(bestRateKey, bestRate);
+            _dataContext.AddData(pathKey, path);
         }
 
         private List<string> GetOptimalPath(int?[,] next, List<string> V, string sourceVertexId, ref int sourceVertexIndex, int destVertexIndex)
