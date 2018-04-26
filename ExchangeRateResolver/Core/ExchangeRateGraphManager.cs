@@ -108,7 +108,7 @@ namespace ExchangeRateResolver.Core
             Console.WriteLine();
         }
 
-        private static List<string> GetOptimalPath(int?[,] next, List<string> V, string sourceVertexId, ref int sourceVertexIndex, int destVertexIndex)
+        private List<string> GetOptimalPath(int?[,] next, List<string> V, string sourceVertexId, ref int sourceVertexIndex, int destVertexIndex)
         {
             var path = new List<string>();
             path.Add(sourceVertexId);
@@ -132,7 +132,7 @@ namespace ExchangeRateResolver.Core
             return path;
         }
 
-        private static void GetBestRate(ExchangeRateRequest exchangeRateRequest, float?[,] rates, List<string> V, out string sourceVertexId, out int sourceVertexIndex, out int destVertexIndex, out float? bestRate)
+        private void GetBestRate(ExchangeRateRequest exchangeRateRequest, float?[,] rates, List<string> V, out string sourceVertexId, out int sourceVertexIndex, out int destVertexIndex, out float? bestRate)
         {
             sourceVertexId = Utils.GetIdentifier(exchangeRateRequest.SourceExchange, exchangeRateRequest.SourceCurrency);
             var destVertexId = Utils.GetIdentifier(exchangeRateRequest.DestinationExchange, exchangeRateRequest.DestinationCurrency);
@@ -141,7 +141,7 @@ namespace ExchangeRateResolver.Core
             bestRate = rates[sourceVertexIndex, destVertexIndex];
         }
 
-        private static void FloydWarshallAlgorithm(int vertextCount, float?[,] rates, int?[,] next)
+        private void FloydWarshallAlgorithm(int vertextCount, float?[,] rates, int?[,] next)
         {
             for (int k = 0; k < vertextCount; k++)
             {
@@ -160,7 +160,7 @@ namespace ExchangeRateResolver.Core
             }
         }
 
-        private static void SetWeightsToRates(IEnumerable<EdgeGroup> groupedEdges, float?[,] rates, int?[,] next, List<string> V)
+        private void SetWeightsToRates(IEnumerable<EdgeGroup> groupedEdges, float?[,] rates, int?[,] next, List<string> V)
         {
             foreach (var group in groupedEdges)
             {
@@ -177,7 +177,7 @@ namespace ExchangeRateResolver.Core
             }
         }
 
-        private static void InitializeRatesAndNextArrays(int vertextCount, float?[,] rates, int?[,] next)
+        private void InitializeRatesAndNextArrays(int vertextCount, float?[,] rates, int?[,] next)
         {
             for (int i = 0; i < vertextCount; i++)
             {
