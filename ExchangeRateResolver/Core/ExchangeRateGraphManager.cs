@@ -148,6 +148,8 @@ namespace ExchangeRateResolver.Core
             var destVertexId = Utils.GetIdentifier(exchangeRateRequest.DestinationExchange, exchangeRateRequest.DestinationCurrency);
             sourceVertexIndex = V.IndexOf(sourceVertexId);
             destVertexIndex = V.IndexOf(destVertexId);
+
+            if (sourceVertexIndex < 0 || destVertexIndex < 0) throw new Exception("No such exchange or currency found");
             bestRate = rates[sourceVertexIndex, destVertexIndex];
         }
 
