@@ -11,7 +11,7 @@ namespace ExchangeRateResolver.Parsers
 
         public ExchangeRateResolverParser()
         {
-            _data = new ExchangeRateRequest();
+
         }
 
         public object GetLastResult()
@@ -24,6 +24,7 @@ namespace ExchangeRateResolver.Parsers
             var tokens = command?.Split(new string[] { " " }, StringSplitOptions.RemoveEmptyEntries);
             if (tokens?.Length == 5)
             {
+                _data = new ExchangeRateRequest();
                 _data.OriginalCommand = command;
                 _data.SourceExchange = tokens[1].ToUpper();
                 _data.SourceCurrency = tokens[2].ToUpper();

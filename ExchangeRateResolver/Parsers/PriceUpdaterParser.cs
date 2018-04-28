@@ -11,7 +11,7 @@ namespace ExchangeRateResolver.Parsers
 
         public PriceUpdaterParser()
         {
-            _data = new PriceUpdate();
+           
         }
 
         public object GetLastResult()
@@ -24,6 +24,7 @@ namespace ExchangeRateResolver.Parsers
             var tokens = command?.Split(new string[] { " " }, StringSplitOptions.RemoveEmptyEntries);
             if (tokens?.Length == 6)
             {
+                _data = new PriceUpdate();
                 _data.OriginalCommand = command;
 
                 DateTime timeStamp;
