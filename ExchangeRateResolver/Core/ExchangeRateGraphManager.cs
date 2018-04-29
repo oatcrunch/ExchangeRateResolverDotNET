@@ -125,16 +125,19 @@ namespace ExchangeRateResolver.Core
 
             int? nextPathIndex = -1;
             int counter = 0;
+            var prevSourcePathIndex = -1;
             while (nextPathIndex != destVertexIndex)
             {
-                if (counter > 1000000)
+                nextPathIndex = next[sourceVertexIndex, destVertexIndex];
+                if (prevSourcePathIndex == nextPathIndex)   //this is to check if cyclic referencing has reached
                 {
                     throw new Exception("No solution found");
                 }
-                nextPathIndex = next[sourceVertexIndex, destVertexIndex];
+
                 var nextPath = V[nextPathIndex.Value];
 
                 path.Add(nextPath);
+                prevSourcePathIndex = sourceVertexIndex;
                 sourceVertexIndex = nextPathIndex.Value;
                 counter++;
             }
@@ -155,11 +158,11 @@ namespace ExchangeRateResolver.Core
 
         private void FloydWarshallAlgorithm(int vertextCount, float?[,] rates, int?[,] next)
         {
-            for (int k = 0; k < vertextCount; k++)
+            for (int k = 0; k < vertextCount; ++k)
             {
-                for (int i = 0; i < vertextCount; i++)
+                for (int i = 0; i < vertextCount; ++i)
                 {
-                    for (int j = 0; j < vertextCount; j++)
+                    for (int j = 0; j < vertextCount; ++j)
                     {
                         var multipliedFactor = rates[i, k] * rates[k, j];
                         if (rates[i, j] < multipliedFactor)
