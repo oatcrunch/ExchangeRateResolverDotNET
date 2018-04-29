@@ -5,7 +5,7 @@ the cryptocurrency to fiat currency with a suitable exchange rate
 2. Provide the best possible exchange rate to our customers
 
 ## Version
-1.0.0
+1.0.1
 
 ## Requirements
 1. Make sure you have the latest .NET framework installed on your PC (Windows OS).
@@ -31,7 +31,9 @@ the cryptocurrency to fiat currency with a suitable exchange rate
 * To change maximum latency traffic, change the value  (in miliseconds) in `MaxTrafficLatency` to any integer.
 
 ## Screenshots
-![Alt text](/Sample.jpg?raw=true "Sample Commands and Responses")
+![Alt text](/Sample.jpg?raw=true "Scenario where user updates the existing exchange rate pricing and checks for the newly updated trade path")
+Descriptions for each command line shown in red above.
+![Alt text](/Sample2.jpg?raw=true "Scenario where user adds in new exchange-rate pair and results are reflected once user requests for new trade path associated to the new exchange-rate pair")
 Descriptions for each command line shown in red above.
 ![Alt text](/ExchangeRatesSolverArchitecture.jpg?raw=true "General Architecture")
 General architecture.
@@ -40,4 +42,5 @@ General architecture.
 | Date | Version | Description | Author |
 | ------------- | ------------- | ------------- | ------------- |
 | 2018-April-26 | 1.0.0  | Initial Draft | Mel |
+| 2018-April-29 | 1.0.1  | Bug fixes and updated README.md | Mel |
 
