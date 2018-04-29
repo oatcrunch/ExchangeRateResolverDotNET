@@ -32,9 +32,11 @@ the cryptocurrency to fiat currency with a suitable exchange rate
 
 ## Screenshots
 ![Alt text](/Sample.jpg?raw=true "Scenario where user updates the existing exchange rate pricing and checks for the newly updated trade path")
-Descriptions for each command line shown in red above.
+User adds in new exchange for ABCBIT and then request for new trade path and the results will be reflected based on newly added exchange.
 ![Alt text](/Sample2.jpg?raw=true "Scenario where user adds in new exchange-rate pair and results are reflected once user requests for new trade path associated to the new exchange-rate pair")
-Descriptions for each command line shown in red above.
+User adds in 1 new exchange and request for trade path and then adds in another new exchange and re-requests for updated trade path.
+![Alt text](/Sample3.jpg?raw=true "Scenario where user adds in new exchange-rate pair and results are reflected once user requests for new trade path associated to the new exchange-rate pair")
+Scenario where same exchange-currency-pair is updated, and user should see a change in trade path and best rate.
 ![Alt text](/ExchangeRatesSolverArchitecture.jpg?raw=true "General Architecture")
 General architecture.
 
